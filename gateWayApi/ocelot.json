@@ -1,0 +1,19 @@
+{
+    "ReRoutes": [
+        {
+            "DownstreamPathTemplate": "/api/Nganh",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7001
+                }
+            ],
+            "UpstreamPathTemplate": "/nganh-api/",
+            "UpstreamHttpMethod": [ "Get", "Post" ]
+        }
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://localhost:7000"
+    }
+}
