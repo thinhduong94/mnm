@@ -27,5 +27,45 @@ namespace sinhVienApi.Bus
             return model;
 
         }
+        public bool create(Nganh nganh)
+        {
+            _context.Nganh.Add(nganh);
+            _context.SaveChanges();
+            return true;
+        }
+
+        public Nganh getById(int id)
+        {
+            var model = _context.Nganh.Find(id);
+            return model;
+        }
+        public bool edit(int id, Nganh nganh)
+        {
+            try
+            {
+                var model = _context.Nganh.Find(id);
+                model.name = nganh.name;
+                _context.Nganh.Update(model);
+                _context.SaveChanges();
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool delete(int id)
+        {
+            try
+            {
+                var model = _context.Nganh.Find(id);
+                _context.Nganh.Remove(model);
+                _context.SaveChanges();
+                return true;
+            }catch(Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }
