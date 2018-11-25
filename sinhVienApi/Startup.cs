@@ -31,7 +31,7 @@ namespace sinhVienApi
             //var password = Environment.GetEnvironmentVariable("SQLSERVER_SA_PASSWORD") ?? "Welkom1234!";
             //var connString = $"Data Source=DESKTOP-TFVS8HE/SQLEXPRESS;Initial Catalog=manageStuentsDb;User ID=sa;Password={password};";
             //var connString = $"Data Source =DESKTOP-TFVS8HE/SQLEXPRESS;Initial Catalog =testDb;Integrated Security = True";
-            services.AddDbContext<apiContext>(options => options.UseSqlServer(@"Server=DESKTOP-TFVS8HE\SQLEXPRESS;Database=testDb;Trusted_Connection=True;"));
+            services.AddDbContext<apiContext>(options => options.UseSqlServer(@"Server=KW1JFKBY6CJHS7O\SQLEXPRESS;Database=mnmDB;Trusted_Connection=True;"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

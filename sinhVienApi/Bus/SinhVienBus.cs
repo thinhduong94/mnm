@@ -7,45 +7,49 @@ using sinhVienApi.Model;
 
 namespace sinhVienApi.Bus
 {
-    public class NganhBus
+    public class SinhVienBus
     {
         private readonly apiContext _context;
 
-        public NganhBus()
+        public SinhVienBus()
         {
 
         }
 
-        public NganhBus(apiContext context)
+        public SinhVienBus(apiContext context)
         {
             _context = context;
         }
-        public List<Nganh> getAll()
+        public List<SinhVien> getAll()
         {
-            var model = _context.Nganh.ToList();
+            var model = _context.SinhVien.ToList();
 
             return model;
 
         }
-        public bool create(Nganh nganh)
+        public bool create(SinhVien sinhvien)
         {
-            _context.Nganh.Add(nganh);
+            _context.SinhVien.Add(sinhvien);
             _context.SaveChanges();
             return true;
         }
 
-        public Nganh getById(int id)
+        public SinhVien getById(int id)
         {
-            var model = _context.Nganh.Find(id);
+            var model = _context.SinhVien.Find(id);
             return model;
         }
-        public bool edit(int id, Nganh nganh)
+        public bool edit(int id, SinhVien sinhvien)
         {
             try
             {
-                var model = _context.Nganh.Find(id);
-                model.TenNganh = nganh.TenNganh;
-                _context.Nganh.Update(model);
+                var model = _context.SinhVien.Find(id);               
+                model.GioiTinh = sinhvien.GioiTinh;
+                model.HoTen = sinhvien.HoTen;
+                model.NamSinh = sinhvien.NamSinh;
+                model.DiaChi = sinhvien.DiaChi;
+                model.LopHoc_Id = sinhvien.LopHoc_Id;
+                _context.SinhVien.Update(model);
                 _context.SaveChanges();
                 return true;
             }
@@ -58,8 +62,8 @@ namespace sinhVienApi.Bus
         {
             try
             {
-                var model = _context.Nganh.Find(id);
-                _context.Nganh.Remove(model);
+                var model = _context.SinhVien.Find(id);
+                _context.SinhVien.Remove(model);
                 _context.SaveChanges();
                 return true;
             }catch(Exception ex)

@@ -14,8 +14,15 @@ namespace sinhVienApi.Entity
         {
             this.Database.EnsureCreated();
         }
+        public DbSet<SinhVien> SinhVien { get; set; }
         public DbSet<Nganh> Nganh { get; set; }
         public DbSet<Lop> Lop { get; set; }
-        public DbSet<khoahoc> khoahoc { get; set; }
+        public DbSet<Khoa> Khoa { get; set; }
+
+        public DbSet<HocKy> HocKy { get; set; }
+        public DbSet<ChiTietHocKy> ChiTietHocKy { get; set; }
+        public DbSet<MonHoc> MonHoc { get; set; }
+        public DbSet<NamHoc> NamHoc { get; set; }
+
     }
 }

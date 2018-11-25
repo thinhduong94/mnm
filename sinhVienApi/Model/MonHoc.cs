@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace sinhVienApi.Model
 {
-    public class Nganh
+    public class MonHoc
     {
         [Key]
-        public int Nganh_Id { get; set; }
-        public string TenNganh { get; set; }
+        public int MonHoc_Id { get; set; }
+        public string TenMon { get; set; }
+        public string MoTa { get; set; }
     }
 }

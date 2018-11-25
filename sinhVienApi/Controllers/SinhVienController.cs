@@ -9,51 +9,51 @@ using sinhVienApi.Model;
 
 namespace sinhVienApi.Controllers
 {
-    [Route("api/Khoahoc")]
+    [Route("api/SinhVien")]
     [ApiController]
-    public class KhoahocController : ControllerBase
+    public class SinhVienController : ControllerBase
     {
-        private readonly khoahocBus itemBus;
+        private readonly SinhVienBus _SinhVienBus;
         private readonly apiContext _context;
-        public KhoahocController(apiContext context)
+        public SinhVienController(apiContext context)
         {
             _context = context;
-            itemBus = new khoahocBus(_context);
+            _SinhVienBus = new SinhVienBus(_context);
         }
         // GET api/values
         [HttpGet,Route("")]
         public ActionResult Get()
         {
-            return Ok(new { data = itemBus.getAll() });
+            return Ok(new { data = _SinhVienBus.getAll() });
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult Get(int id)
         {
-            return Ok(new { data = itemBus.getById(id) });
+            return Ok(new { data = _SinhVienBus.getById(id) });
         }
 
         // POST api/values
         [HttpPost]
-        public ActionResult Post(khoahoc item)
+        public ActionResult Post(SinhVien sinhVien)
         {
-            var rp = itemBus.create(item);
+            var rp = _SinhVienBus.create(sinhVien);
             return Ok(new { data = rp });
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public ActionResult Put(int id, khoahoc item)
+        public ActionResult Put(int id, SinhVien sinhVien)
         {
-            return Ok(new { data = itemBus.edit(id, item) });
+            return Ok(new { data = _SinhVienBus.edit(id, sinhVien) });
         }
 
         // DELETE api/values/5
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            return Ok(new { data = itemBus.delete(id) });
+            return Ok(new { data = _SinhVienBus.delete(id) });
         }
     }
 }
