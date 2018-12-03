@@ -73,10 +73,7 @@ namespace sinhVienApi.Bus
                          select new View_DangKyMonHoc
                          {
                              SinhVien_Id= SinhVien.SinhVien_Id,
-                             NamHoc= NamHoc.name,
-                             HocKy = HocKy.name,
-                             TenMon = MonHoc.TenMon,
-                             Diem = ChiTietHocKy.Diem,
+                             HocKy_Id = HocKy.HocKy_Id,
                          }).ToList();
 
             return model;
@@ -99,10 +96,7 @@ namespace sinhVienApi.Bus
                          select new View_DangKyMonHoc
                          {
                              SinhVien_Id = SinhVien.SinhVien_Id,
-                             NamHoc = NamHoc.name,
-                             HocKy = HocKy.name,
-                             TenMon = MonHoc.TenMon,
-                             Diem = ChiTietHocKy.Diem,
+                             HocKy_Id = HocKy.HocKy_Id,
                          }).ToList();
 
             return model;

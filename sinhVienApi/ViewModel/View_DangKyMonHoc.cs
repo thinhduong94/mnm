@@ -8,9 +8,7 @@ namespace sinhVienApi.ViewModel
     public class View_DangKyMonHoc
     {
         public int SinhVien_Id { get; set; }
-        public string NamHoc { get; set; }
-        public string HocKy { get; set; }
-        public string TenMon { get; set; }
-        public int Diem { get; set; }
+        public int HocKy_Id { get; set; }
+        public List<int> MonHocList { get; set; }
     }
 }

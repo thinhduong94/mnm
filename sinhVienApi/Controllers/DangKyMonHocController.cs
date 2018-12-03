@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using sinhVienApi.Bus;
 using sinhVienApi.Entity;
 using sinhVienApi.Model;
+using sinhVienApi.ViewModel;
 
 namespace sinhVienApi.Controllers
 {
@@ -35,10 +36,20 @@ namespace sinhVienApi.Controllers
         }
         // POST api/values
         [HttpPost]
-        public ActionResult Post(ChiTietHocKy chiTietHocKy)
+        public ActionResult Post(View_DangKyMonHoc item)
         {
-            var rp = _DangKyMonHocBus.create(chiTietHocKy);
-            return Ok(new { data = rp });
+            var chitiethockis = new List<ChiTietHocKy>();
+            foreach (int i in item.MonHocList)
+            {
+                var chitiethocki = new ChiTietHocKy();
+                chitiethocki.HocKy_Id = item.HocKy_Id;
+                chitiethocki.MonHoc_Id = i; // lay ra tu list mon hoc
+                chitiethocki.Diem = 0;// dang ki luc nao diem cung = 0;
+                chitiethockis.Add(chitiethocki);
+            }
+            _context.ChiTietHocKy.AddRange(chitiethockis);
+            _context.SaveChanges();
+            return Ok(true);
         }
 
         // PUT api/values/5
